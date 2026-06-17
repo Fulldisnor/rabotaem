@@ -1,0 +1,37 @@
+name: License Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  licensee:
+    name: Check repository license
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check LICENSE file
+        run: |
+          if [ -f LICENSE ]; then
+            echo "LICENSE file exists"
+          else
+            echo "ERROR: No LICENSE file"
+            exit 1
+          fi
+
+  reuse:
+    name: REUSE compliance check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install reuse
+        run: pip install reuse
+
+      - name: Check REUSE compliance
+        run: reuse lint

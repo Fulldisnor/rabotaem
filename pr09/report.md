@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2026 ЕНИН АНДРЕЙ <aei131205@mail.ru>
+
+SPDX-License-Identifier: MIT
+-->
+
 # ПР №9. Следы вредоносного ПО в Linux
 
 ## 1. Что было посажено
